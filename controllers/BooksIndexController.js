@@ -1,5 +1,5 @@
 angular.module('libraryApp')
-  .controller('BooksIndexController', BooksIndexController);
+       .controller('BooksIndexController', BooksIndexController);
 
 BooksIndexController.$inject=['$http'];
 function BooksIndexController( $http ) {
