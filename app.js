@@ -16,7 +16,7 @@ function config (  $routeProvider,   $locationProvider  )  {
     })
     .when('/:id', {
       templateUrl: 'templates/books/show.html',
-      controller:  'AlbumsShowController',
+      controller:  'BooksShowController',
       controllerAs:'BooksShowCtrl'
     })
     /* Include the additional route here! */
