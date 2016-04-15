@@ -17,7 +17,7 @@ function BooksShowController($http, $routeParams, $location) {
     vm.editBook = function (book) {
         console.log(book);
       $http({
-        method: 'PU',
+        method: 'PUT',
         url: 'https://super-crud.herokuapp.com/books/' +book.id,
         data: book
       }).then(function successCallback(json) {
@@ -26,13 +26,13 @@ function BooksShowController($http, $routeParams, $location) {
       });
     };
 
-    vm.deleteAlbum = function () {
+    vm.deleteBook = function (book) {
       $http({
         method: 'DELETE',
-        url: 'https://super-crud.herokuapp.com/books/' +$routeParams.id,
+        url: 'https://super-crud.herokuapp.com/books/' +book.id,
       }).then(function successCallback(json) {
         var index = vm.albums.indexOf(album);
-        vm.albums.splice(index,1);
+        vm.book.splice(index,1);
       }, function errorCallback(response) {
         console.log('There was an error deleting the data', response);
       });
