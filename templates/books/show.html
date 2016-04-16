@@ -1,8 +1,8 @@
-<div>
+<div><br>
 	<center>
-<button method="/" class="btn btn-danger" >Back</button>
+<button class="btn btn-default"><a href="/">Home</a></button>
 	</center
-</div>
+ </div>
 <br><div class="col-md-10 col-md-offset-1">
 	<div class="panel panel-default">
 		<div class="panel-body">
@@ -17,33 +17,42 @@
 						<li class="list-group-item">
 							<h4 class='inline-header'>Book Title:</h4>
 							<span ng-hide="editing">{{BooksShowCtrl.book.title}}</span>
-							<input ng-show="editing" ng-model="book.title" type="text" class="form-control input-md">
+							<input ng-show="editing" ng-model="BooksShowCtrl.book.title" type="text" class="form-control input-md">
 						</li>
 
 						<li class="list-group-item">
 							<h4 class='inline-header'>Author:</h4>
 							<span ng-hide="editing">{{BooksShowCtrl.book.author}}</span>
-							<input ng-show="editing" ng-model="book.author" type="text" class="form-control input-md">
+							<input ng-show="editing" ng-model="BooksShowCtrl.book.author" type="text" class="form-control input-md">
 						</li>
 
 						<li class="list-group-item">
 							<h4 class='inline-header'>Release Date:</h4>
 							<span ng-hide="editing">{{BooksShowCtrl.book.releaseDate}}</span>
-							<input ng-show="editing" ng-model="book.releaseDate" type="text" class="form-control input-md">
+							<input ng-show="editing" ng-model="BooksShowCtrl.book.releaseDate" type="text" class="form-control input-md">
 						</li>
 
 					</ul>
-				</div>
-			</div>
 
-			<div class='panel-footer'>
-				<div class='panel-footer'>
-					<center>
-					<button class='btn btn-danger' ng-hide="editing" ng-click="BooksShowCtrl.deleteBook(book)">Delete Book</button>
-					<button class='btn btn-info' ng-hide="editing" ng-click="editing = true">Edit Album</button>
-					<button class='btn btn-success' ng-show="editing" ng-click="BooksShowCtrl.editBook(book); editing = false">Save</button>
-					<button class='btn btn-info' ng-show="editing" ng-click="editing = false">Close</button>
-				  </center>
+					<a href="#" ng-click="editForm=!editForm" class="btn btn-default">Edit <span></span></a>&nbsp;
+					<a href="#" ng-hide="editForm" ng-click="BooksShowCtrl.deleteBook(BooksShowCtrl.book)" class="btn btn-danger">Delete <span></span></a>
+
+					<div ng-show="editForm">
+						<br>
+						<form ng-show="editForm" ng-submit="BooksShowCtrl.editBook(BooksShowCtrl.book)">
+							<div class="form-group">
+								<input type="text" ng-model="BooksShowCtrl.book.title" class="form-control" placeholder="Title">
+							</div>
+							<div class="form-group">
+								<input type="text" ng-model="BooksShowCtrl.book.author" class="form-control" placeholder="Author">
+							</div>
+							<div class="form-group">
+								<input type="text" ng-model="BooksShowCtrl.book.releaseDate" class="form-control" placeholder="Release Date">
+							</div>
+							<input type="submit" value="Save" class="btn btn-success">
+						</form>
+					</div>
+
 				</div>
 			</div>
 		</div>

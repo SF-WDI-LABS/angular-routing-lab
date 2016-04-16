@@ -1,5 +1,7 @@
-<h2>Library Books</h2>
-<input type="text" class="form-control" ng-model="searchText" placeholder="Search Books">
+<center>
+<h2>Books & Stuff</h2>
+</center>
+<input type="text" class="form-control" ng-model="searchText" placeholder="Search Books"><br>
   <div ng-repeat="book in BooksIndexCtrl.books | orderBy: 'title' | filter: searchText" class="row">
     <div class="col-md-10 col-md-offset-1">
       <div class="panel panel-default">

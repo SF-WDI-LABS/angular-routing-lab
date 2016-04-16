@@ -15,24 +15,26 @@ function BooksShowController($http, $routeParams, $location) {
     });
 
     vm.editBook = function (book) {
-        console.log(book);
+        console.log("HERE'S MY BOOK!!!!!", book);
       $http({
         method: 'PUT',
-        url: 'https://super-crud.herokuapp.com/books/' +book.id,
+        url: 'https://super-crud.herokuapp.com/books/' + book._id,
         data: book
       }).then(function successCallback(json) {
+        console.log(json);
       }, function errorCallback(response) {
         console.log('There was an error editing the data', response);
       });
     };
 
     vm.deleteBook = function (book) {
+      console.log(book);
       $http({
         method: 'DELETE',
-        url: 'https://super-crud.herokuapp.com/books/' +book.id,
+        url: 'https://super-crud.herokuapp.com/books/' +book._id,
       }).then(function successCallback(json) {
-        var index = vm.albums.indexOf(album);
-        vm.book.splice(index,1);
+        console.log("deleted");
+        $location.path('/');
       }, function errorCallback(response) {
         console.log('There was an error deleting the data', response);
       });
