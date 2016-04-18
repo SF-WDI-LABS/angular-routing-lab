@@ -1,6 +1,5 @@
 angular.module('libraryApp', ['ngRoute'])
-       .config(config)
-       .controller('BooksShowController', BooksShowController);
+       .config(config);
 
 ////////////
 // ROUTES //
@@ -15,7 +14,7 @@ function config (  $routeProvider,   $locationProvider  )  {
       controllerAs: 'booksIndexCtrl'
     })
     .when('/books/:id', {
-      templateUrl: 'templates/books/show.html',
+      templateUrl: '/templates/books/show.html',
       controller:  'BooksShowController',
       controllerAs: 'booksShowCtrl'
     })

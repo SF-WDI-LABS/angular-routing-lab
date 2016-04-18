@@ -8,51 +8,37 @@
 		 functionality! -->
 
 
-
 <div class="container">
-  <div class="row">
-		<div class="col-md-10 col-md-offset-1">
-	    <div class="panel panel-default">
-	      <div class="panel-body">
+	<div class='row'>
+		<div class="col-md-3 col-xs-12 thumbnail">
+			<img ng-src="{{booksShowCtrl.book.image}}">
+		</div>
 
-					        <div class='row'>
-					          <div class="col-md-3 col-xs-12 thumbnail">
-					            <img ng-src="{{booksShowCtrl.book.image}}">
-					          </div>
+		<div class="col-md-9 col-xs-12">
+			<ul class="list-group form-inline">
+				<li class="list-group-item">
+				 <p>Title: {{booksShowCtrl.book.title}}</p>
+				</li>
 
-								 <div class="col-md-9 col-xs-12">
- 			            <ul class="list-group form-inline">
- 			              <li class="list-group-item">
-											<p>Title: {{booksShowCtrl.book.title}}</p>
-		                 </li>
+				<ul class="list-group form-inline">
+					<li class="list-group-item">
+						<p>Author: {{booksShowCtrl.book.author}}</p>
+					</li>
 
-										 <ul class="list-group form-inline">
-	                     <li class="list-group-item">
-												 <p>Author: {{booksShowCtrl.book.author}}</p>
-		                 </li>
+					<ul class="list-group form-inline">
+						<li class="list-group-item">
+							<p>Released date: {{booksShowCtrl.book.releaseDate}}</p>
+						</li>
 
-		                 <li class="list-group-item">
-		                   <li class="list-group-item">
-												 <p>Released date: {{booksShowCtrl.book.releaseDate}}</p>
-		                 </li>
+				</ul>
+		</div>
+	</div>
 
-		               </ul>
-		             </div>
-		           </div>
-
-		           <div class='panel-footer'>
-		             <div class='panel-footer'>
-		               <button class='btn btn-danger' ng-click="booksShowCtrl.deleteBook(book)">Delete Book</button>
-		               <button class='btn btn-info' ng-hide="editing" ng-click="editing = true">Edit Book</button>
-		               <button class='btn btn-success' ng-show="editing" ng-click="booksShowCtrl.editBook(book); editing = false">Save Changes</button>
-		             </div>
-		           </div>
-		         </div>
-		       </div>
-		     </div>
-		   </div>
-		 </div>
-
-
-
+	<div class='panel-footer'>
+		<div class='panel-footer'>
+			<button class='btn btn-danger' ng-click="booksShowCtrl.deleteBook(book)">Delete Book</button>
+			<button class='btn btn-info' ng-hide="editing" ng-click="editing = true">Edit Book</button>
+			<button class='btn btn-success' ng-show="editing" ng-click="booksShowCtrl.editBook(book); editing = false">Save Changes</button>
+		</div>
+	</div>
 </div>
