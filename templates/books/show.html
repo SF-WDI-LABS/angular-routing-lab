@@ -34,7 +34,8 @@
 
 					</ul>
 
-					<a href="#" ng-click="editForm=!editForm" class="btn btn-default">Edit <span></span></a>&nbsp;
+					<a href="#" ng-click="editForm=!editForm" ng-hide="editForm" class="btn btn-default">Edit <span></span></a>&nbsp;
+					<a href="#" ng-click="editForm=!editForm" ng-hide="!editForm" class="btn btn-default">Close <span></span></a>&nbsp;
 					<a href="#" ng-hide="editForm" ng-click="BooksShowCtrl.deleteBook(BooksShowCtrl.book)" class="btn btn-danger">Delete <span></span></a>
 
 					<div ng-show="editForm">
