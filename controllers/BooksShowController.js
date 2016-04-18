@@ -14,4 +14,13 @@ function BooksShowController($http, $routeParams, $location) {
   }, function callBackError(err) {
     console.log('Error getting response data', err);
   });
+
+  $http({
+    method: 'PUT',
+    url: 'https://super-crud.herokuapp.com/books' + "/" + $routeParams.id,
+  }).then(function successEditCallBack(response) {
+    console.log('edit success', response.data);
+  }, function errorEditCallBack(err) {
+    console.log('Error editing response data', err);
+  });
 }
