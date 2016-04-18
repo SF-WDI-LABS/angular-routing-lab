@@ -17,7 +17,7 @@ function config (  $routeProvider,   $locationProvider  )  {
     .when('/books/:id', {
       templateUrl: 'templates/books/show.html',
       controller: 'BooksShowController',
-      ControllerAs: 'booksShowCtrl'
+      controllerAs: 'booksShowCtrl'
     })
     /* Include the additional route here! */
     .otherwise({
