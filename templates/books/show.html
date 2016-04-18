@@ -1,4 +1,4 @@
-<h2>Hello {{booksShowCtrl.book.title}}</h2>
+<h2>{{booksShowCtrl.book.title}}</h2>
 <hr>
 <div class="container">
 <div class="col-md-10 col-md-offset-1">
@@ -7,7 +7,7 @@
 
 			<div class='row'>
 				<div class="col-md-3 col-xs-12 thumbnail">
-					<img src='{{booksShowCtrl.book.image}}' alt="book image">
+					<img ng-src='{{booksShowCtrl.book.image}}' alt="book image">
 				</div>
 
 				<div class="col-md-9 col-xs-12">
@@ -32,7 +32,7 @@
 						<div class='panel-footer'>
 							<button class='btn btn-danger' ng-click="booksShowCtrl.deleteBook(book)">Delete Book</button>
 							<button class='btn btn-info' ng-hide="editing" ng-click="editing = true">Edit Book</button>
-							<button class='btn btn-success' ng-show="editing" ng-click="booksShowCtrl.editBook(book); editing = false">Save Changes</button>
+							<button class='btn btn-success' ng-show="editing" ng-click="booksShowCtrl.editBook(booksShowCtrl.book); editing = false">Save Changes</button>
 						</div>
 					</ul>
 				</div>
