@@ -4,3 +4,42 @@
   Make sure you display an image, the title, and the author.
   The title should be a link to the specific book view.
 </div> -->
+
+<div ng-repeat="book in booksIndexCtrl.books">
+  <div class="col-md-10 col-md-offset-1">
+    <div class="panel panel-default">
+      <div class="panel-body">
+
+        <div class='row'>
+          <div class="col-md-3 col-xs-12 thumbnail">
+            <img ng-src="{{book.image}}">
+          </div>
+
+          <div class="col-md-9 col-xs-12">
+            <ul class="list-group form-inline">
+              <li class="list-group-item">
+                <p>Title: <a ng-href="/books/{{book._id}}">{{book.title}}</a></p>
+                <li>
+
+                  <ul class="list-group form-inline">
+                    <li class="list-group-item">
+                      <p>Author: {{book.author}}</p>
+                      <li>
+
+                        <ul class="list-group form-inline">
+                          <li class="list-group-item">
+                            <p>Release Date: {{book.releaseDate}}</p>
+                            <li>
+          </div>
+          <div class='panel-footer'>
+            <div class='panel-footer'>
+              <button class='btn btn-info' ng-hide="edit" ng-click="edit = true">Edit Book</button>
+              <button class='btn btn-success' ng-show="edit" ng-click="booksIndexCtrl.editBook(book); edit = false">Save Changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
