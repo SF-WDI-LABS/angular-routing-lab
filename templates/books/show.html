@@ -10,35 +10,42 @@
 
 <div class="container">
 	<div class='row'>
-		<div class="col-md-3 col-xs-12 thumbnail">
-			<img ng-src="{{booksShowCtrl.book.image}}">
-		</div>
+		<div class="col-xs-6">
+		<img ng-src="{{booksShowCtrl.book.image}}" class="img-responsive">
+	</div>
 
 		<div class="col-md-9 col-xs-12">
 			<ul class="list-group form-inline">
 				<li class="list-group-item">
-				 <p>Title: {{booksShowCtrl.book.title}}</p>
-				</li>
+				 <p class='inline-header'>Title:</p>
+					<span ng-hide="edit">{{booksShowCtrl.book.title}}</span>
+						<input ng-show="edit" ng-model="bookShowCtrl.book.title" type="text" class="form-control input-md">
+                </li>
 
 				<ul class="list-group form-inline">
 					<li class="list-group-item">
-						<p>Author: {{booksShowCtrl.book.author}}</p>
-					</li>
+						<p class='inline-header'> Author:</p>
+						<span ng-hide="edit">{{booksShowCtrl.book.author}}</span>
+						<input ng-show="edit" ng-model="bookShowCtrl.book.author" type="text" class="form-control input-md">
+								</li>
 
 					<ul class="list-group form-inline">
 						<li class="list-group-item">
-							<p>Released date: {{booksShowCtrl.book.releaseDate}}</p>
-						</li>
+							<p class='inline-header'> Released date:</p>
+								 <span ng-hide="edit">{{booksShowCtrl.book.releaseDate}}</span>
+								 <input ng-show="edit" ng-model="booksShowCtrl.book.releaseDate" type="text" class="form-control input-md">
+		 								</li>
 
 				</ul>
 		</div>
 	</div>
 
+
 	<div class='panel-footer'>
 		<div class='panel-footer'>
 			<button class='btn btn-danger' ng-click="booksShowCtrl.deleteBook(book)">Delete Book</button>
-			<button class='btn btn-info' ng-hide="editing" ng-click="editing = true">Edit Book</button>
-			<button class='btn btn-success' ng-show="editing" ng-click="booksShowCtrl.editBook(book); editing = false">Save Changes</button>
+			<button class='btn btn-info' ng-hide="edit" ng-click="edit = true">Edit Book</button>
+			<button class='btn btn-success' ng-show="edit" ng-click="booksShowCtrl.editBook(book); edit = false">Save Changes</button>
 		</div>
 	</div>
 </div>

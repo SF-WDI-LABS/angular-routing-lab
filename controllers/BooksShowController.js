@@ -15,34 +15,36 @@ function BooksShowController($http, $routeParams, $location) {
 
   vm.deleteBook = function(book) {
     console.log('deleting book', book);
-      $http({
-        method: 'DELETE',
-        url: 'https://super-crud.herokuapp.com/books/' + $routeParams.id,
-      }).then(onDeleteBookSuccess);
-      function onDeleteBookSuccess(response){
-        console.log('delete response data:', response.data);
-        $location.path('/');
-      }
+    $http({
+      method: 'DELETE',
+      url: 'https://super-crud.herokuapp.com/books/' + $routeParams.id,
+    }).then(onDeleteBookSuccess);
 
-  };
-
-vm.updateBook = function(book){
-  console.log('update book', updateBook);
-  $http({
-    method: 'PUT',
-    url: 'https://super-crud.herokuapp.com/books/' + $routeParams.id,
-    data: {
-      title: updateBook.title,
-      author: updateBook.author,
-      image: updateBook.image,
-      releaseDate: updateBook.releaseDate
-    }
-    }).then(onUpdateBookSuccess);
-
-    function onUpdateBookSuccess(response){
-      console.log('updated book', bookId, ':', response.data);
-      vm.book = response.data;
+    function onDeleteBookSuccess(response) {
+      console.log('delete response data:', response.data);
       $location.path('/');
     }
+
   };
+
+vm.editBook = function(book) {
+  console.log('edit book', editBook);
+  $http({
+    method: 'PUT',
+    url: 'https://super-crud.herokuapp.com/books/' + editBook._id,
+    data: {
+      image: editBook.image,
+      title: editBook.title,
+      author: editBook.author,
+      releaseDate: editBook.releaseDate
+    }
+
+  }).then(onEditBookSuccess);
+
+  function onEditBookSuccess(response) {
+    console.log('edit book', bookId, ':', response.data);
+    vm.book = response.data;
+    $location.path('/');
+  }
+};
 }
