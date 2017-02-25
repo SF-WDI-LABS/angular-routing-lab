@@ -1,0 +1,16 @@
+<div>
+  <div class="book" ng-repeat="book in bc.books">
+    <div>
+      <img class="book-cover" ng-src="{{book.image}}">
+    </div>
+    <div>
+      <h3><a ng-href="/books/{{book._id}}">{{book.title}}</a></h3>
+      <h5>{{book.author}}</h5>
+      <h5>{{book.releaseDate}}</h5>
+    </div>
+<!--     <button ng-click="edit=true" class="btn btn-default">Edit</button>
+    <button ng-show="edit" ng-click="edit=false">Submit</button> -->
+    <hr>
+  </div>
+</div>
+<hr>
