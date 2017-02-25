@@ -1,5 +1,3 @@
-console.log("hellos")
-
 angular
   .module("booksApp", ['ngRoute'])
   .config(config);

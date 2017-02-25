@@ -15,6 +15,6 @@ function BooksController(   $http,   $routeParams) {
   url: "https://super-crud.herokuapp.com/books",
  }).then(function Success(json){
   vm.books = json.data.books;
-  console.log(vm.books)
+  console.log("loging")
  })
 }

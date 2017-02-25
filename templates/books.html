@@ -5,12 +5,12 @@
     </div>
     <div>
       <h3><a ng-href="/books/{{book._id}}">{{book.title}}</a></h3>
-      <h5>{{book.author}}</h5>
-      <h5>{{book.releaseDate}}</h5>
+      <h5><span ng-hide="edit">{{book.author}}</span> <input type="text" name="author" value="{{book.author}}" ng-show="edit"></h5>
+      <h5><span ng-hide="edit">{{book.releaseDate}}</span> <input type="text" name="releaseDate" value="{{book.releaseDate}}" ng-show="edit"></h5>
     </div>
-<!--     <button ng-click="edit=true" class="btn btn-default">Edit</button>
-    <button ng-show="edit" ng-click="edit=false">Submit</button> -->
+    <button ng-click="edit=true" ng-hide="edit" class="btn btn-default">Edit</button>
+    <button ng-show="edit" ng-click="edit=false">Submit</button>
+    <button ng-show="edit" ng-click="edit=false">Cancel</button>
     <hr>
   </div>
 </div>
-<hr>
