@@ -3,14 +3,11 @@
     <div>
       <img class="book-cover" ng-src="{{book.image}}">
     </div>
-    <form class="editing" ng-submit="bc.submit(book)">
-      <h3 class="title"><a ng-href="/books/{{book._id}}" ng-hide="edit">{{book.title}}</a><input type="text" name="title" ng-show="edit" ng-model="bc.editBook.title"></h3>
-      <h5><span ng-hide="edit">{{book.author}}</span> <input type="text" name="author" ng-show="edit" ng-model="bc.editBook.author"></h5>
-      <h5><span ng-hide="edit">{{book.releaseDate}}</span> <input type="text" name="releaseDate" ng-model="bc.editBook.releaseDate" ng-show="edit"></h5>
-      <button ng-show="edit" ng-click="edit=false" type="submit">Submit</button>
-    </form>
-      <button ng-show="edit" ng-click="edit=false; bc.makeEdit(book)">Cancel</button>
-    <button ng-click="bc.makeEdit(book); edit=true" ng-hide="edit" class="btn btn-default">Edit</button>
+    <div class="editing">
+      <h3 class="title"><a ng-href="/books/{{book._id}}">{{book.title}}</a></h3>
+      <h5>{{book.author}}</h5>
+      <h5>{{book.releaseDate}}</h5>
+    </div>
     <hr>
   </div>
 </div>
