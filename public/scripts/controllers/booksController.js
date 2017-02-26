@@ -7,6 +7,7 @@ function BooksController(   $http,   $routeParams) {
  var vm = this;
  console.log("BOOK controller!") 
  vm.books = [];
+ vm.filter = "author";
  $http({
   method: "GET",
   url: "https://super-crud.herokuapp.com/books",

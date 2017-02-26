@@ -5,6 +5,7 @@ angular
 OneBookController.$inject = ['$http', '$routeParams'];
 function OneBookController(    $http,   $routeParams) {
   var vm = this;
+  console.log("found A Book!");
   vm.book = {};
   vm.editBook = {
     title: "",
@@ -12,6 +13,13 @@ function OneBookController(    $http,   $routeParams) {
     author: "",
     releaseDate: "",
   }
+  $http({
+    method: "GET",
+    url: "https://super-crud.herokuapp.com/books/" + $routeParams.id,
+  }).then(function Success(response){
+    console.log(response.data)
+    vm.book = response.data;
+  })
   vm.makeCopy = function(book){
     for(key in vm.editBook){
       vm.editBook[key] = book[key]
@@ -28,12 +36,13 @@ function OneBookController(    $http,   $routeParams) {
       vm.book = res.data;
     })
   }
-  console.log("found A Book!");
-  $http({
-    method: "GET",
-    url: "https://super-crud.herokuapp.com/books/" + $routeParams.id,
-  }).then(function Success(response){
-    console.log(response.data)
-    vm.book = response.data;
-  })
+  vm.delete = function(){
+    console.log("del");
+    $http({
+      method: "DELETE",
+      url: "https://super-crud.herokuapp.com/books/" + vm.book._id
+    }).then(function(res){
+      console.log("BOOK WAS DELETED!", res.data);
+    })
+  }
 }

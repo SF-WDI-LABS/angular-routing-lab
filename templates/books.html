@@ -1,5 +1,9 @@
 <div>
-  <div class="book" ng-repeat="book in bc.books">
+  <select ng-model="bc.filter">
+    <option ng-model="bc.filter">author</option>
+    <option ng-model="bc.filter">title</option>
+  </select>
+  <div class="book" ng-repeat="book in bc.books | orderBy: bc.filter" >
     <div>
       <img class="book-cover" ng-src="{{book.image}}">
     </div>
