@@ -7,16 +7,27 @@ function BooksController(   $http,   $routeParams) {
  var vm = this;
  console.log("BOOK controller!") 
  vm.books = [];
- vm.editBook = {}
- vm.submit = function(){
-  console.log("book", vm.editBook);
+ vm.editBook = {
+  title: "",
+  image: "",
+  author: "",
+  releaseDate: "",
+ }
+ vm.makeEdit = function(book){
+  for(key in vm.editBook){
+    vm.editBook[key] = book[key]
+  }
+ }
+ vm.submit = function(book){
+  var index = vm.books.indexOf(book);
+  console.log(index);
   $http({
     method: "PUT",
-    url: "https://super-crud.herokuapp.com/books/" + vm.editBook._id,
+    url: "https://super-crud.herokuapp.com/books/" + book._id,
     data: vm.editBook
   }).then(function(res){
     console.log("success!");
-    console.log(res.data);
+    vm.books[index] = res.data;
   })
  }
  $http({
@@ -24,6 +35,5 @@ function BooksController(   $http,   $routeParams) {
   url: "https://super-crud.herokuapp.com/books",
  }).then(function Success(json){
   vm.books = json.data.books;
-  console.log("loging")
  })
 }
