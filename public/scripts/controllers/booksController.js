@@ -5,10 +5,11 @@ angular
 BooksController.$inject = ['$http', '$routeParams'];
 function BooksController(   $http,   $routeParams) {
  var vm = this;
- console.log("BOOK CONTROLS") 
+ console.log("BOOK controller!") 
  vm.books = [];
- vm.submit = function(data){
-  console.log("SUBMITING")
+ vm.editBook = {}
+ vm.submit = function(){
+  console.log("book", vm.editBook)
  }
  $http({
   method: "GET",
