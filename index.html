@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="bookly">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>bookly</title>
+
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/styles/styles.css">
+
+    <!-- VENDOR SCRIPTS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.2/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.2/angular-route.min.js"></script>
+
+    <!-- APPLICATION SCRIPTS -->
+    <script src="/public/scripts/app.js"></script>
+    <script src="/public/scripts/controllers/booksIndexController.js"></script>
+    <script src="/public/scripts/controllers/booksShowController.js"></script>
+
+  </head>
+  <body>
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Welcome to bookly</h1>
+        <p>Your PREMIER book binder!</p>
+      </div>
+      <div ng-view></div>
+    </div>
+
+  </body>
+  <footer>
+    &#169 2017. Designed with <span id='fist'>&#9994</span> in San Francisco.
+  </footer>
+</html>
