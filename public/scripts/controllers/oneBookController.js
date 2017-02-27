@@ -2,10 +2,9 @@ angular
   .module("booksApp")
   .controller("OneBookController",OneBookController);
 
-OneBookController.$inject = ['$http', '$routeParams'];
-function OneBookController(    $http,   $routeParams) {
+OneBookController.$inject = ['$http', '$routeParams', '$location'];
+function OneBookController(   $http,   $routeParams,   $location) {
   var vm = this;
-  console.log("found A Book!");
   vm.book = {};
   vm.editBook = {
     title: "",
@@ -17,14 +16,12 @@ function OneBookController(    $http,   $routeParams) {
     method: "GET",
     url: "https://super-crud.herokuapp.com/books/" + $routeParams.id,
   }).then(function Success(response){
-    console.log(response.data)
     vm.book = response.data;
   })
   vm.makeCopy = function(book){
     for(key in vm.editBook){
       vm.editBook[key] = book[key]
     }
-    console.log(vm.editBook);
   }
   vm.submit = function(book){
     $http({
@@ -32,17 +29,16 @@ function OneBookController(    $http,   $routeParams) {
       url: "https://super-crud.herokuapp.com/books/" + book._id,
       data: vm.editBook
     }).then(function(res){
-      console.log("success!");
       vm.book = res.data;
+      $location.path('/');
     })
   }
   vm.delete = function(){
-    console.log("del");
     $http({
       method: "DELETE",
       url: "https://super-crud.herokuapp.com/books/" + vm.book._id
     }).then(function(res){
-      console.log("BOOK WAS DELETED!", res.data);
+      $location.path('/');
     })
   }
 }

@@ -5,7 +5,6 @@ angular
 BooksController.$inject = ['$http', '$routeParams'];
 function BooksController(   $http,   $routeParams) {
  var vm = this;
- console.log("BOOK controller!") 
  vm.books = [];
  vm.filter = "author";
  $http({
