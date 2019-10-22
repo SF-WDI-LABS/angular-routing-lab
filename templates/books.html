@@ -1,0 +1,17 @@
+<div>
+  <select ng-model="bc.filter">
+    <option ng-model="bc.filter">author</option>
+    <option ng-model="bc.filter">title</option>
+  </select>
+  <div class="book" ng-repeat="book in bc.books | orderBy: bc.filter" >
+    <div>
+      <img class="book-cover" ng-src="{{book.image}}">
+    </div>
+    <div class="editing">
+      <h3 class="title"><a ng-href="/books/{{book._id}}">{{book.title}}</a></h3>
+      <h5>{{book.author}}</h5>
+      <h5>{{book.releaseDate}}</h5>
+    </div>
+    <hr>
+  </div>
+</div>

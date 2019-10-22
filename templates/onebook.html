@@ -1,0 +1,15 @@
+<div class="book">
+  <div>
+    <img class="book-cover" ng-src="{{obc.book.image}}">
+  </div>
+  <form class="editing" ng-submit="obc.submit(obc.book)">
+    <h3 class="title"><span ng-hide="edit">{{obc.book.title}}</span><input type="text" name="title" ng-show="edit" ng-model="obc.editBook.title"></h3>
+    <h5><span ng-hide="edit">{{obc.book.author}}</span> <input type="text" name="author" ng-show="edit" ng-model="obc.editBook.author"></h5>
+    <h5><span ng-hide="edit">{{obc.book.releaseDate}}</span> <input type="text" name="releaseDate" ng-model="obc.editBook.releaseDate" ng-show="edit"></h5>
+    <button class="btn btn-default" ng-show="edit" ng-click="edit=false" type="submit">Save</button>
+  </form>
+  <button class="btn btn-default" ng-show="edit" ng-click="edit=false; obc.makeEdit(obc.book)">Cancel</button>
+  <button class="btn btn-default" ng-click="obc.makeCopy(obc.book); edit=true" ng-hide="edit" >Edit</button>
+  <hr>
+  <button class="btn btn-default" ng-click="obc.delete()">Delete</button>
+</div>
